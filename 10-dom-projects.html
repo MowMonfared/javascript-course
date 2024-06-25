@@ -38,6 +38,10 @@
         padding: 12px 15px;
         cursor: pointer;
       }
+
+      .error {
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -76,11 +80,18 @@
         const inputElement = document.querySelector('.js-cost-input');
         let cost = Number(inputElement.value);
 
-        if (cost < 40) {
-          cost += 10;
-        }
+        const messageDisplay = document.querySelector('.js-total-cost');
 
-        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        if (cost < 40 && cost >= 0) {
+          cost += 10;
+          messageDisplay.innerHTML = `$${cost}`;
+          messageDisplay.classList.remove('error');
+        } else if (cost < 0) {
+          document.querySelector(
+            '.js-total-cost'
+          ).innerHTML = `Error: cost cannot be less than $0`;
+          messageDisplay.classList.add('error');
+        }
       }
 
       function subscribe() {
