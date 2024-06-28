@@ -194,6 +194,7 @@ console.log(minMax([3]));
 */
 
 //Ex. 11n
+/*
 function countWords(words) {
   const result = {};
 
@@ -215,3 +216,125 @@ function countWords(words) {
 }
 
 console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+*/
+
+//Ex. 11o
+/*
+const stringArray1 = ['hello', 'world', 'search', 'good'];
+const stringArray2 = ['not', 'found'];
+
+function findString(array) {
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === 'search') {
+      console.log(i);
+      return;
+    }
+  }
+  console.log(-1);
+}
+
+findString(stringArray1);
+findString(stringArray2);
+*/
+
+//Ex. 11p
+/*
+const stringArray1 = ['hello', 'world', 'search', 'good', 'search'];
+
+function findString(array) {
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === 'search') {
+      console.log(`Index of first appearance of 'search' in array is: ${i}`);
+      return;
+    }
+  }
+  console.log(`No 'search' has been found in this array.`);
+}
+
+findString(stringArray1);
+*/
+
+//Ex. 11q
+/*
+const stringArray1 = ['green', 'red', 'blue', 'red'];
+
+function findIndex(array, word) {
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      console.log(`Index of first appearance of 'search' in array is: ${i}`);
+      return;
+    }
+  }
+  console.log(-1);
+}
+
+findIndex(stringArray1, 'red');
+findIndex(stringArray1, 'yellow');
+*/
+
+//Ex. 11r
+/*
+const foodsArray = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+function removeEgg(array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'egg') {
+      continue;
+    }
+    result.push(array[i]);
+  }
+  return result;
+}
+
+console.log(removeEgg(foodsArray));
+*/
+
+//Ex. 11s
+/*
+const foodsArray = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+function removeEgg(foods) {
+  const result = [];
+  let eggsRemoved = 0;
+
+  for (let i = 0; i < foods.length; i++) {
+    // Only skip 'egg' if we removed less than 2
+    // of them so far.
+    if (foods[i] === 'egg' && eggsRemoved < 2) {
+      // Update the number of 'egg' we have removed.
+      // This must be done before continue, otherwise,
+      // doing continue first will just skip this code.
+      eggsRemoved++;
+      continue;
+    }
+
+    result.push(foods[i]);
+  }
+
+  return result;
+}
+
+console.log(removeEgg(foodsArray));
+*/
+function removeEgg(foods) {
+  // To remove the last 2 'egg', reverse the array first.
+  const reversedFoods = foods.reverse();
+
+  const result = [];
+  let eggsRemoved = 0;
+
+  for (let i = 0; i < reversedFoods.length; i++) {
+    if (reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+      eggsRemoved++;
+      continue;
+    }
+
+    result.push(reversedFoods[i]);
+  }
+
+  // At the end, remember to .reverse() back the result.
+  return result.reverse();
+}
+
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
