@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise Lesson 12</title>
+  </head>
+  <body>
+    <!-- Ex. 12c to 12d
+    <button
+      class="js-toggle"
+      onclick="
+      toggle1()"
+    >
+      Start
+    </button>
+    -->
+
+    <!-- Ex. 12e to 12f 
+    <button
+      onclick="
+      displayMessage()"
+    >
+      Add to cart
+    </button>
+    <div class="js-added-message"></div>
+    -->
+
+    <!-- Ex. 12h
+    <button
+      onclick="
+      messages++;
+    "
+    >
+      Add
+    </button>
+
+    <button
+      onclick="
+      messages--;
+    "
+    >
+      Remove
+    </button>
+    -->
+
+    <!-- Ex. 12i -->
+
+    <!--
+      Note: This is just a sample solution. Other
+      solutions are possible so don't worry if
+      your solution looks different.
+    -->
+    <button
+      onclick="
+      messages++;
+      displayNotification();
+    "
+    >
+      Add
+    </button>
+
+    <button
+      onclick="
+      if (messages > 0) {
+        messages--;
+
+        // If there are no new messages, stop displaying
+        // the notification in the tab.
+        if (messages === 0) {
+          stopNotification();
+        }
+      }
+    "
+    >
+      Remove
+    </button>
+    <script src="scripts/12-exercises.js"></script>
+  </body>
+</html>
