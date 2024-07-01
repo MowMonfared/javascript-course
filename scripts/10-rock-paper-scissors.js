@@ -16,10 +16,83 @@ function autoPlay() {
       playGame(playerMove);
     }, 1000);
     isAutoPlaying = true;
+
+    document.querySelector('.auto-play-button').innerHTML = 'Stop Playing';
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
+
+    document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
   }
+}
+
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+}
+
+document
+  .querySelector('.js-reset-score-button')
+  .addEventListener('click', () => {
+    resetScore();
+  });
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r') {
+    playGame('rock');
+  } else if (event.key === 'p') {
+    playGame('paper');
+  } else if (event.key === 's') {
+    playGame('scissors');
+
+    // Add an if-statement condition to
+    // check if 'a' was pressed.
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === 'Backspace') {
+    showResetConfirmation();
+  }
+});
+
+document
+  .querySelector('.js-reset-score-button')
+  .addEventListener('click', () => {
+    // Update the click event listener to
+    // show the confirmation message instead
+    // of restting the score immediately.
+    showResetConfirmation();
+  });
+
+function showResetConfirmation() {
+  document.querySelector('.js-reset-confirmation').innerHTML = `
+        Are you sure you want to reset the score?
+        <button class="js-reset-confirm-yes reset-confirm-button">
+          Yes
+        </button>
+        <button class="js-reset-confirm-no reset-confirm-button">
+          No
+        </button>
+      `;
+
+  document
+    .querySelector('.js-reset-confirm-yes')
+    .addEventListener('click', () => {
+      resetScore();
+      hideResetConfirmation();
+    });
+
+  document
+    .querySelector('.js-reset-confirm-no')
+    .addEventListener('click', () => {
+      hideResetConfirmation();
+    });
+}
+
+function hideResetConfirmation() {
+  document.querySelector('.js-reset-confirmation').innerHTML = '';
 }
 
 function playGame(playerMove) {

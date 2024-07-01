@@ -37,16 +37,7 @@
     <p class="js-moves"></p>
     <p class="js-score score"></p>
 
-    <button
-      onclick="
-      score.wins = 0;
-      score.losses = 0;
-      score.ties = 0;
-      localStorage.removeItem('score');
-      updateScoreElement();
-    "
-      class="reset-score-button"
-    >
+    <button class="reset-score-button js-reset-score-button">
       Reset Score
     </button>
     <button
@@ -56,7 +47,7 @@
     >
       Auto Play
     </button>
-
+    <p class="js-reset-confirmation"></p>
     <script src="scripts/10-rock-paper-scissors.js"></script>
   </body>
 </html>

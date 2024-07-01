@@ -13,3 +13,8 @@ const colors = ['red', 'blue', 'yellow'];
 colors.forEach(function (value) {
   console.log(value);
 });
+
+['good', 'bad', 'ugly'].forEach((value, index) => {
+  console.log(index);
+  console.log(value);
+});

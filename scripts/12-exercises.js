@@ -98,6 +98,7 @@ setInterval(function () {
 */
 
 //Ex. 12i
+/*
 let messages = 2;
 
 // Save the intervalId in case we need to cancel it.
@@ -136,3 +137,106 @@ function stopNotification() {
   clearInterval(intervalId);
   document.title = 'App';
 }
+*/
+
+//Ex. 12j
+/*
+const multiply = (a, b) => {
+  return a * b;
+};
+
+console.log(multiply(2, 3));
+console.log(multiply(7, 10));
+*/
+
+//Ex. 12k
+/*
+const multiply = (a, b) => a * b;
+
+console.log(multiply(2, 3));
+console.log(multiply(7, 10));
+*/
+
+//Ex. 12l
+/*
+function countPositive(nums) {
+  let positiveNumbers = 0;
+  nums.forEach((num) => {
+    if (num >= 0) {
+      positiveNumbers++;
+    }
+  });
+  console.log(positiveNumbers);
+}
+
+countPositive([1, -3, 5]);
+countPositive([-2, 3, -5, 7, 10]);
+*/
+
+//Ex. 12m
+/*
+function addNum(array, num) {
+  return array.map((value) => {
+    return value + num;
+  });
+}
+
+console.log(addNum([1, -3, 5], 2));
+console.log(addNum([-2, 3, -5, 7, 10], 2));
+
+//shorter version of Ex. 12m:
+
+function addNum(array, num) {
+  return array.map((value) => value + num);
+}
+
+console.log(addNum([1, -3, 5], 2));
+console.log(addNum([-2, 3, -5, 7, 10], 2));
+*/
+
+//Ex. 12n
+/*
+function removeEgg(foods) {
+  return foods.filter((food) => {
+    if (food !== 'egg') {
+      return true;
+    } else {
+      return false;
+    }
+  });
+}
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+//shorter version of Ex. 12n:
+function removeEggShorter(foods) {
+  return foods.filter((food) => food !== 'egg');
+}
+console.log(removeEggShorter(['egg', 'apple', 'egg', 'egg', 'ham']));
+*/
+
+//Ex. 12o
+/*
+function removeEgg(foods) {
+  let eggsRemoved = 0;
+  return foods.filter((food) => {
+    if (food === 'egg' && eggsRemoved < 2) {
+      eggsRemoved++;
+      return false;
+    } else {
+      return true;
+    }
+  });
+}
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+*/
+
+//Ex. 12q
+//switch onclick to addEventListener()
+/*
+const button = document.querySelector('.js-toggle');
+button.addEventListener('click', () => {
+  setTimeout(() => {
+    button.innerHTML = 'Finished!';
+  }, 1000);
+});
+*/
